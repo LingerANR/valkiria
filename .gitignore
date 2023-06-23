@@ -3,3 +3,4 @@
 .files/
 *.lme
 __pycache__/
+log.txt

@@ -8,7 +8,7 @@ from modules.test_make_file import MakeFileForm
 
 class MyApplication(npyscreen.NPSAppManaged):
     def onStart(self):
-        self.addForm("MAIN", MainForm, name="Main Menu")
+        self.addForm("MAIN", MainForm, name="Main Menu", lines=38, columns=135)
         self.addForm("ENCRYPT",EncryptForm, name = "Encrypt", lines=20, columns=70)
         self.addForm("DECRYPT",DecryptForm, name = "Decrypt", lines=20, columns=70)
         self.addForm("READER",ReadFile, name = "File", lines=35, columns=70)
