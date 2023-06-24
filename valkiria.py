@@ -15,7 +15,7 @@ def start_valkiria():
     ██║   ██║███████║██║     █████╔╝ ██║██████╔╝██║███████║
     ╚██╗ ██╔╝██╔══██║██║     ██╔═██╗ ██║██╔══██╗██║██╔══██║
      ╚████╔╝ ██║  ██║███████╗██║  ██╗██║██║  ██║██║██║  ██║ 
-      ╚═══╝  ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝  v1.1.0
+      ╚═══╝  ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝  v1.2.0
      
       ====== KEEP YOUR SECRETS HIDDEN FROM THE WORLD ====="""
 
@@ -38,7 +38,7 @@ def animate(duration):
 
     while time.time() < end_time:
         for char in '|/-\\':
-            print(char, end='\r')  # Imprimir en la misma línea
+            print("Launching Valkiria . . . " + char, end='\r')  # Imprimir en la misma línea
             time.sleep(0.1)  # Retraso para el efecto de animación
 
 def check_updates():
@@ -70,14 +70,24 @@ def check_updates():
     response = requests.get(url)
     if response.status_code == 200:
         remote_commit = response.json()['sha']
+        print(remote_commit)
     else:
         print("Error al obtener la última confirmación en la rama remota.")
         return
-
+    print("Latest: " + latest_commit)
+    print("Remote: " + remote_commit)
     # Verificar si hay cambios en el repositorio
     if latest_commit != remote_commit:
         print("¡Hay cambios en el repositorio!")
         # Realizar las acciones necesarias para actualizar el repositorio aquí
+        choise = input("Do you want to update Valkiria? [yes/no]: ")
+        if choise.lower() == "yes" or choise.lower() == "y":
+            print("Updating Valkiria . . .")
+            command = f"git pull origin {current_branch}"
+            os.system(command)
+            print("Updated!")
+        else:
+            pass 
     else:
         print("El repositorio está actualizado.")
 
@@ -87,6 +97,5 @@ if __name__ == '__main__':
     os.system('clear')
     start_valkiria()
     check_updates()
-    print("starting valkiria . . . ")
     animate(duration=duracion)
     launcher()
