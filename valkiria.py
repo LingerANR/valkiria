@@ -15,7 +15,7 @@ def start_valkiria():
     ██║   ██║███████║██║     █████╔╝ ██║██████╔╝██║███████║
     ╚██╗ ██╔╝██╔══██║██║     ██╔═██╗ ██║██╔══██╗██║██╔══██║
      ╚████╔╝ ██║  ██║███████╗██║  ██╗██║██║  ██║██║██║  ██║ 
-      ╚═══╝  ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝  v1.2.0
+      ╚═══╝  ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝  v1.2.1
      
       ====== KEEP YOUR SECRETS HIDDEN FROM THE WORLD ====="""
 
@@ -93,7 +93,7 @@ def check_updates():
 
 # Ejecutar la función al iniciar el programa
 if __name__ == '__main__':
-    duracion = 3
+    duracion = 2
     os.system('clear')
     start_valkiria()
     check_updates()
