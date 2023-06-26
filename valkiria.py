@@ -123,11 +123,11 @@ def check_updates():
 
 # Ejecutar la función al iniciar el programa
 if __name__ == '__main__':
-    duracion = 300
+    duracion = 2
     os.system('clear')
     os.system("printf '\e[8;24;100t'")
     banner_option = random.randint(1, 3)
-    version = "v1.3.2"
+    version = "v1.3.3"
     if banner_option == 1:
         banner_1(version)
     elif banner_option == 2:

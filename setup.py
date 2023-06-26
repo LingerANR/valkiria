@@ -41,9 +41,6 @@ def generate_keys():
     keys = lme_rsa.generate_key_pair()
     if keys:
         print("[+] Keys Created!")
-    print("[!] Encrypting Fernet Key . . .")
-    fernet_encrypted = lme_rsa.encrypt_fernet_key(".fernet/lme.key")
-    if fernet_encrypted:
         print("[+] Fernet Key Encrypted!")
 
 def warning():
