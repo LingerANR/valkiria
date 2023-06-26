@@ -101,7 +101,6 @@ def check_updates():
     # Obtener la última confirmación en la rama remota
     url = f"https://api.github.com/repos/{user_repo}/commits/{current_branch}"
     response = requests.get(url)
-    print(response)
     if response.status_code == 200:
         remote_commit = response.json()['sha']
     else:
@@ -124,12 +123,11 @@ def check_updates():
 
 # Ejecutar la función al iniciar el programa
 if __name__ == '__main__':
-    duracion = 3
+    duracion = 300
     os.system('clear')
     os.system("printf '\e[8;24;100t'")
     banner_option = random.randint(1, 3)
-    version = "v1.2.2"
-    print(banner_option)
+    version = "v1.3.2"
     if banner_option == 1:
         banner_1(version)
     elif banner_option == 2:

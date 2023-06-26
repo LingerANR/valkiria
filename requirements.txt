@@ -1,0 +1,8 @@
+colorama==0.4.0
+cryptography==3.4.8
+funcy==1.11
+GitPython==3.1.31
+npyscreen==4.10.5
+pycryptodome==3.7.0
+Requests==2.31.0
+rsa==4.9
