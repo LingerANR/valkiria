@@ -1,13 +1,13 @@
 import npyscreen
-from modules.lme_rsa import LmeRsa
-from modules.test_main_form import MainForm
+from  lme_rsa import LmeRsa
+from  test_main_form import MainForm
 import logging
 class DecryptForm(npyscreen.ActionForm):
     def create(self):
         self.show_atx = 63
         self.show_aty = 1
         self.file_path = self.add(npyscreen.TitleFilenameCombo, name="File to Decrypt: ")
-        self.key_path = self.add(npyscreen.TitleFilenameCombo, name="Key: ")
+        self.key_path = self.add(npyscreen.TitleText, name="Key: ")
 
     def on_ok(self):
         reader = self.parentApp.getForm("READER")

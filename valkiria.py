@@ -60,7 +60,7 @@ def banner_1(version):
 
 def launcher():
     set_terminal_size()
-    ruta_archivo = "run_app.py"
+    ruta_archivo = "./src/run_app.py"
     os.system('python3 {}'.format(ruta_archivo))
 
 def set_terminal_size():
@@ -127,7 +127,7 @@ if __name__ == '__main__':
     os.system('clear')
     os.system("printf '\e[8;24;100t'")
     banner_option = random.randint(1, 3)
-    version = "v1.3.3"
+    version = "v2.3.3"
     if banner_option == 1:
         banner_1(version)
     elif banner_option == 2:

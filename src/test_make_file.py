@@ -1,5 +1,5 @@
 import npyscreen
-from modules.lme_rsa import LmeRsa
+from  lme_rsa import LmeRsa
 
 
 class MakeFileForm(npyscreen.ActionForm):
@@ -10,7 +10,7 @@ class MakeFileForm(npyscreen.ActionForm):
         # self.file_name = self.add(npyscreen.MultiLineEditableBoxed, name = "File Name", max_height=6, editable=True)
         self.file_name = self.add(npyscreen.TitleText, name="File Name:")
         self.content = self.add(npyscreen.MultiLineEdit, value="", max_height=25)
-        self.key_path = self.add(npyscreen.TitleFilenameCombo, name = "Key: ")
+        self.key_path = self.add(npyscreen.TitleText, name = "Key: ")
 
     def on_ok(self):
         # encrypt = EncryptForm()

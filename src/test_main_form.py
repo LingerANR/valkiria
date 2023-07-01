@@ -1,5 +1,5 @@
 import npyscreen
-from modules.test_encrypt_form import EncryptForm
+from  test_encrypt_form import EncryptForm
 import os
 import logging
 import threading
@@ -26,14 +26,14 @@ class MainForm( npyscreen.FormBaseNew ):
             "╚██╗ ██╔╝██╔══██║██║     ██╔═██╗ ██║██╔══██╗██║██╔══██║",
             " ╚████╔╝ ██║  ██║███████╗██║  ██╗██║██║  ██║██║██║  ██║",
             "  ╚═══╝  ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝",
-            " RSA-FERNET Encryption Tool        BY        LingerANR "]
+            " TUI Encryption Tool        BY        LingerANR "]
     
         self.logs = []
         self.add(npyscreen.ButtonPress, name="Encrypt a file", when_pressed_function=self.show_encrypt_form)
         self.add(npyscreen.ButtonPress, name="Decrypt a file",rely=11, max_height=2, width=30, when_pressed_function=self.show_decrypt_form)
         self.add(npyscreen.ButtonPress, name="Make File",rely=12, max_height=2, width=30, when_pressed_function=self.show_make_file_form)
         self.add(npyscreen.ButtonPress, name="Read File",rely=13, max_height=2, width=30, when_pressed_function=self.show_read_form)
-        self.add(npyscreen.ButtonPress, name="Generate Key",rely=14, max_height=2, width=30, when_pressed_function=self.add_log)
+        # self.add(npyscreen.ButtonPress, name="Generate Key",rely=14, max_height=2, width=30, when_pressed_function=self.add_log)
         self.add(npyscreen.ButtonPress, name="Exit",rely=15, max_height=2, width=30, when_pressed_function=self.action_exit)
         self.log_box = self.add(LogBoxTitle, name="Logs", relx=2, rely=21, max_height=15, width=60, editable=True)
         self.add_handlers({
@@ -46,7 +46,7 @@ class MainForm( npyscreen.FormBaseNew ):
         logging.info(self.logs)
 
     def action_exit( self ):
-        self.exit()
+        quit()
 
     def show_encrypt_form( self, *args, **kwargs ):
         logging.info("Entre al encrypt...")
@@ -101,7 +101,6 @@ class LogBoxTitle(npyscreen.BoxTitle):
         with open("log.txt", "r") as file:
             logs = file.read().splitlines()
         self.entry_widget.values = logs
-        logging.info("INDEX: " + str(len(logs)))
         self.entry_widget.start_display_at = len(logs) - self.entry_widget.height
         self.entry_widget.cursor_line = len(logs) - 1
         self.entry_widget.display()

@@ -4,3 +4,6 @@
 *.lme
 __pycache__/
 log.txt
+Valkiria_Proyect.egg-info/
+dist/
+build/

@@ -1,10 +1,10 @@
 import npyscreen
 import curses
-from modules.test_encrypt_form import EncryptForm
-from modules.test_decrypt_form import DecryptForm
-from modules.test_main_form import MainForm
-from modules.test_read_file_form import ReadFile
-from modules.test_make_file import MakeFileForm
+from test_encrypt_form import EncryptForm
+from test_decrypt_form import DecryptForm
+from test_main_form import MainForm
+from test_read_file_form import ReadFile
+from test_make_file import MakeFileForm
 
 class MyApplication(npyscreen.NPSAppManaged):
     def onStart(self):

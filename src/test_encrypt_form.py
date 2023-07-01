@@ -1,5 +1,5 @@
 import npyscreen
-from modules.lme_rsa import LmeRsa
+from lme_rsa import LmeRsa
 import logging
 class EncryptForm(npyscreen.ActionForm):
     
@@ -7,7 +7,7 @@ class EncryptForm(npyscreen.ActionForm):
         self.show_atx = 63
         self.show_aty = 1
         self.file_path = self.add(npyscreen.TitleFilenameCombo, name = "File: ")
-        self.key_path = self.add(npyscreen.TitleFilenameCombo, name = "Key: ")
+        self.key_path = self.add(npyscreen.TitleText, name = "Key: ")
 
     def on_ok(self):
         file = self.file_path.value
