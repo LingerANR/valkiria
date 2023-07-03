@@ -72,7 +72,7 @@ def animate(duration):
 
     while time.time() < end_time:
         for char in '|/-\\':
-            print("Launching Valkiria . . . " + char, end='\r') 
+            print(Fore.LIGHTYELLOW_EX + Style.BRIGHT + "Launching Valkiria . . . " + char, end='\r') 
             time.sleep(0.1)  
 
 def check_updates():
@@ -99,31 +99,39 @@ def check_updates():
     latest_commit = repo.head.commit.hexsha
 
     # Obtener la última confirmación en la rama remota
-    url = f"https://api.github.com/repos/{user_repo}/commits/{current_branch}"
-    response = requests.get(url)
-    if response.status_code == 200:
-        remote_commit = response.json()['sha']
-    else:
-        print("Error al obtener la última confirmación en la rama remota.")
-        return
-    # Verificar si hay cambios en el repositorio
-    if latest_commit != remote_commit:
-        print("Status: " + Style.BRIGHT + Fore.LIGHTYELLOW_EX + "UPDATE AVAILABLE" + Style.RESET_ALL)
-        # Realizar las acciones necesarias para actualizar el repositorio aquí
-        choise = input("Do you want to update Valkiria? [yes/no]: ")
-        if choise.lower() == "yes" or choise.lower() == "y":
-            print("Updating Valkiria . . .")
-            command = f"git pull origin {current_branch}"
-            os.system(command)
-            print("Updated!")
+    try:
+        url = f"https://api.github.com/repos/{user_repo}/commits/{current_branch}"
+        response = requests.get(url)
+        if response.status_code == 200:
+            remote_commit = response.json()['sha']
         else:
-            pass 
-    else:
-        print("\nStatus: " + Style.BRIGHT + Fore.LIGHTYELLOW_EX + "OK")
+            print("Error al obtener la última confirmación en la rama remota.")
+            return
+        # Verificar si hay cambios en el repositorio
+        if latest_commit != remote_commit:
+            print("Status: " + Style.BRIGHT + Fore.LIGHTYELLOW_EX + "UPDATE AVAILABLE" + Style.RESET_ALL)
+            # Realizar las acciones necesarias para actualizar el repositorio aquí
+            choise = input("Do you want to update Valkiria? [yes/no]: ")
+            if choise.lower() == "yes" or choise.lower() == "y":
+                print("Updating Valkiria . . .")
+                command = f"git pull origin {current_branch}"
+                os.system(command)
+                print("Updated!")
+            else:
+                pass 
+        else:
+            print("\nStatus: " + Style.BRIGHT + Fore.LIGHTYELLOW_EX + "OK")
+    except:
+        print(Fore.RED + "[x] Connection error!")
+        try_run = input("Run Valkiria anyway? [yes/no]: ")
+        if try_run == "yes" or try_run == 'y':
+            pass
+        else:
+            quit()
 
 # Ejecutar la función al iniciar el programa
 if __name__ == '__main__':
-    duracion = 2
+    duracion = 3
     os.system('clear')
     os.system("printf '\e[8;24;100t'")
     banner_option = random.randint(1, 3)
