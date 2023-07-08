@@ -1,6 +1,7 @@
 import npyscreen
 from lme_rsa import LmeRsa
 import logging
+from test_log_box import LogBoxTitle as LogBox
 class EncryptForm(npyscreen.ActionForm):
     
     def create(self):
@@ -18,5 +19,10 @@ class EncryptForm(npyscreen.ActionForm):
 
     def beforeEditing( self ):
         logging.info("Sali de encrypt...")
+        LogBox.update_logs()
+
+    def afterEditing( self ):
+        logging.info("Prueba de log")
+        LogBox.update_logs()
         
         

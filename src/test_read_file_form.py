@@ -18,6 +18,7 @@ class ReadFile(npyscreen.Form):
         #                              editable=False)
 
     def load_file_content(self, file_path):
+        self.file_content.value = ""
         with open(file_path, 'r') as file:
             content = file.read()
         # self.file_content.value = content
@@ -29,13 +30,6 @@ class ReadFile(npyscreen.Form):
         self.file_content.value = wrapped_content
         os.remove(file_path)
 
-    # def beforeEditing(self):
-    #     # Obtener el ancho de la ventana
-    #     window_width = self.columns - 8  # Restar el ancho de los márgenes
-
-    #     # Dividir el texto en líneas envueltas
-    #     wrapped_lines = textwrap.wrap(self.file_content.value, width=window_width + 1)
-
-    #     # Actualizar el contenido del widget con las líneas envueltas
-    #     self.file_content.values = wrapped_lines
+    def on_ok( self ):
+        self.file_content.value = ""
         
